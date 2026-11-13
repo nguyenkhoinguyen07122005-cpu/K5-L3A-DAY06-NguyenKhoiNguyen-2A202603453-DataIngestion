@@ -1,0 +1,153 @@
+{
+  "run_at": "2026-11-13T02:29:36+00:00",
+  "embedding": {
+    "provider": "local sentence-transformers (CPU)",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "loaded_from": "/home/claude/models/all-MiniLM-L6-v2",
+    "dimensions": 384,
+    "max_seq_length_tokens": 256,
+    "pooling": "mean + L2 normalize",
+    "query_document_handling": "identical encoding, no prefix",
+    "weights_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+    "sentence_transformers": "6.3.0",
+    "torch": "2.15.0+cu132",
+    "cost_usd": 0
+  },
+  "vector_store": {
+    "backend": "PostgreSQL + pgvector",
+    "server_version": "16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)",
+    "pgvector_version": "0.6.0",
+    "table": "day6_chunks",
+    "metric": "cosine distance (<=>), score = 1 - distance",
+    "search": "exact (no ANN index; sequential scan + ORDER BY)"
+  },
+  "corpus": {
+    "documents": 6,
+    "units": 111,
+    "normalized_chars": 185650,
+    "load_and_normalize_seconds": 0.034
+  },
+  "model_load_seconds": 3.81,
+  "python": "3.13.18",
+  "machine": "Linux-6.18.44-fc-v445-x86_64-with-glibc2.39",
+  "cpu_count": 2,
+  "strategies": {
+    "A": {
+      "chunking": "fixed_size",
+      "chunk_size": 500,
+      "overlap": 50,
+      "use_filter": false,
+      "description": "Fixed 500-char windows, 50-char overlap, inside each unit; metadata stored, no filter.",
+      "chunk_count": 460,
+      "chunk_chars": {
+        "n": 460,
+        "min": 68,
+        "p10": 218,
+        "median": 500,
+        "mean": 441.5,
+        "p90": 500,
+        "max": 500,
+        "total": 203100
+      },
+      "chunk_tokens": {
+        "n": 460,
+        "min": 17,
+        "p10": 55,
+        "median": 110,
+        "mean": 106.5,
+        "p90": 140,
+        "max": 194,
+        "total": 48990
+      },
+      "chunks_truncated_over_max_seq_length": 0,
+      "newly_embedded_texts": 9,
+      "embed_seconds": 0.13,
+      "store_seconds": 0.01,
+      "upsert": {
+        "inserted_or_updated": 9,
+        "unchanged": 451,
+        "deleted": 2
+      },
+      "rows_in_store_after": 460,
+      "cost_usd": 0
+    },
+    "B": {
+      "chunking": "by_paragraph",
+      "chunk_size": 800,
+      "overlap": 0,
+      "use_filter": false,
+      "description": "Paragraph/heading-aware groups up to 800 chars (heading starts a chunk); no filter.",
+      "chunk_count": 369,
+      "chunk_chars": {
+        "n": 369,
+        "min": 50,
+        "p10": 192,
+        "median": 537,
+        "mean": 501.7,
+        "p90": 764,
+        "max": 800,
+        "total": 185140
+      },
+      "chunk_tokens": {
+        "n": 369,
+        "min": 13,
+        "p10": 47,
+        "median": 123,
+        "mean": 120.2,
+        "p90": 188,
+        "max": 273,
+        "total": 44336
+      },
+      "chunks_truncated_over_max_seq_length": 1,
+      "newly_embedded_texts": 7,
+      "embed_seconds": 0.13,
+      "store_seconds": 0.0,
+      "upsert": {
+        "inserted_or_updated": 7,
+        "unchanged": 362,
+        "deleted": 2
+      },
+      "rows_in_store_after": 369,
+      "cost_usd": 0
+    },
+    "C": {
+      "chunking": "by_paragraph",
+      "chunk_size": 800,
+      "overlap": 0,
+      "use_filter": true,
+      "description": "Same chunks and vectors as B; SQL WHERE pep_type=<value> applied only when the question carries a filter.",
+      "chunk_count": 369,
+      "chunk_chars": {
+        "n": 369,
+        "min": 50,
+        "p10": 192,
+        "median": 537,
+        "mean": 501.7,
+        "p90": 764,
+        "max": 800,
+        "total": 185140
+      },
+      "chunk_tokens": {
+        "n": 369,
+        "min": 13,
+        "p10": 47,
+        "median": 123,
+        "mean": 120.2,
+        "p90": 188,
+        "max": 273,
+        "total": 44336
+      },
+      "chunks_truncated_over_max_seq_length": 1,
+      "newly_embedded_texts": 0,
+      "embed_seconds": 0.0,
+      "store_seconds": 0.0,
+      "upsert": {
+        "inserted_or_updated": 7,
+        "unchanged": 362,
+        "deleted": 2
+      },
+      "rows_in_store_after": 369,
+      "cost_usd": 0
+    }
+  }
+}

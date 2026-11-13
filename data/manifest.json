@@ -1,0 +1,1051 @@
+{
+  "counting_rule": "RST has no pages. Each PEP body (header preamble removed; sections 'Copyright', 'References', 'Footnotes' removed as reference/licence-only) is normalized, split into paragraphs, and paragraphs are grouped IN ORDER into units; a unit is closed as soon as it reaches >= 1500 normalized characters; a short remainder is merged into the previous unit. No duplication. Unit = 'page' (DocumentPage.page = unit number within the document).",
+  "min_unit_chars": 1500,
+  "total_units": 111,
+  "total_normalized_chars": 185650,
+  "min_unit_len": 1500,
+  "sources": [
+    {
+      "source_id": "pep-0001",
+      "title": "PEP Purpose and Guidelines",
+      "pep_type": "Process",
+      "status": "Active",
+      "python_version": null,
+      "created": "13-Jun-2000",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/155e5bee7d985ef30555b496eb994d24a591f70b/peps/pep-0001.rst",
+      "local_path": "starter/data/raw/pep-0001.rst",
+      "license_or_permission": "This document is placed in the public domain or under the CC0-1.0-Universal license, whichever is more permissive.",
+      "accessed_at": "2026-11-13",
+      "snapshot": "https://github.com/python/peps @ 155e5bee7d985ef30555b496eb994d24a591f70b (2026-11-12T16:11:20Z)",
+      "raw_chars": 41653,
+      "normalized_chars": 38526,
+      "excluded_sections": [
+        "Footnotes",
+        "Copyright"
+      ],
+      "physical_pages": "N/A (reStructuredText, no pagination)",
+      "units": [
+        {
+          "unit_id": "pep-0001:u01",
+          "page": 1,
+          "char_start": 0,
+          "char_end": 1737,
+          "n_chars": 1737,
+          "section_at_start": "What is a PEP?"
+        },
+        {
+          "unit_id": "pep-0001:u02",
+          "page": 2,
+          "char_start": 1739,
+          "char_end": 3248,
+          "n_chars": 1509,
+          "section_at_start": "PEP Types"
+        },
+        {
+          "unit_id": "pep-0001:u03",
+          "page": 3,
+          "char_start": 3250,
+          "char_end": 5289,
+          "n_chars": 2039,
+          "section_at_start": "PEP Workflow > Python's BDFL"
+        },
+        {
+          "unit_id": "pep-0001:u04",
+          "page": 4,
+          "char_start": 5291,
+          "char_end": 6882,
+          "n_chars": 1591,
+          "section_at_start": "PEP Workflow > Start with an idea for Python"
+        },
+        {
+          "unit_id": "pep-0001:u05",
+          "page": 5,
+          "char_start": 6884,
+          "char_end": 8624,
+          "n_chars": 1740,
+          "section_at_start": "PEP Workflow > Finding a sponsor"
+        },
+        {
+          "unit_id": "pep-0001:u06",
+          "page": 6,
+          "char_start": 8626,
+          "char_end": 10218,
+          "n_chars": 1592,
+          "section_at_start": "PEP Workflow > Submitting a PEP"
+        },
+        {
+          "unit_id": "pep-0001:u07",
+          "page": 7,
+          "char_start": 10220,
+          "char_end": 11730,
+          "n_chars": 1510,
+          "section_at_start": "PEP Workflow > Submitting a PEP"
+        },
+        {
+          "unit_id": "pep-0001:u08",
+          "page": 8,
+          "char_start": 11732,
+          "char_end": 13246,
+          "n_chars": 1514,
+          "section_at_start": "PEP Workflow > Discussing a PEP"
+        },
+        {
+          "unit_id": "pep-0001:u09",
+          "page": 9,
+          "char_start": 13248,
+          "char_end": 15034,
+          "n_chars": 1786,
+          "section_at_start": "PEP Workflow > Discussing a PEP"
+        },
+        {
+          "unit_id": "pep-0001:u10",
+          "page": 10,
+          "char_start": 15036,
+          "char_end": 17097,
+          "n_chars": 2061,
+          "section_at_start": "PEP Workflow > PEP Review & Resolution"
+        },
+        {
+          "unit_id": "pep-0001:u11",
+          "page": 11,
+          "char_start": 17099,
+          "char_end": 18821,
+          "n_chars": 1722,
+          "section_at_start": "PEP Workflow > PEP Review & Resolution"
+        },
+        {
+          "unit_id": "pep-0001:u12",
+          "page": 12,
+          "char_start": 18823,
+          "char_end": 20373,
+          "n_chars": 1550,
+          "section_at_start": "PEP Workflow > PEP Review & Resolution"
+        },
+        {
+          "unit_id": "pep-0001:u13",
+          "page": 13,
+          "char_start": 20375,
+          "char_end": 21881,
+          "n_chars": 1506,
+          "section_at_start": "PEP Workflow > PEP Review & Resolution"
+        },
+        {
+          "unit_id": "pep-0001:u14",
+          "page": 14,
+          "char_start": 21883,
+          "char_end": 23441,
+          "n_chars": 1558,
+          "section_at_start": "PEP Workflow > PEP Maintenance"
+        },
+        {
+          "unit_id": "pep-0001:u15",
+          "page": 15,
+          "char_start": 23443,
+          "char_end": 24954,
+          "n_chars": 1511,
+          "section_at_start": "What belongs in a successful PEP?"
+        },
+        {
+          "unit_id": "pep-0001:u16",
+          "page": 16,
+          "char_start": 24956,
+          "char_end": 26548,
+          "n_chars": 1592,
+          "section_at_start": "What belongs in a successful PEP?"
+        },
+        {
+          "unit_id": "pep-0001:u17",
+          "page": 17,
+          "char_start": 26550,
+          "char_end": 28159,
+          "n_chars": 1609,
+          "section_at_start": "What belongs in a successful PEP?"
+        },
+        {
+          "unit_id": "pep-0001:u18",
+          "page": 18,
+          "char_start": 28161,
+          "char_end": 29779,
+          "n_chars": 1618,
+          "section_at_start": "What belongs in a successful PEP?"
+        },
+        {
+          "unit_id": "pep-0001:u19",
+          "page": 19,
+          "char_start": 29781,
+          "char_end": 31325,
+          "n_chars": 1544,
+          "section_at_start": "PEP Header Preamble"
+        },
+        {
+          "unit_id": "pep-0001:u20",
+          "page": 20,
+          "char_start": 31327,
+          "char_end": 32964,
+          "n_chars": 1637,
+          "section_at_start": "PEP Header Preamble"
+        },
+        {
+          "unit_id": "pep-0001:u21",
+          "page": 21,
+          "char_start": 32966,
+          "char_end": 34702,
+          "n_chars": 1736,
+          "section_at_start": "Auxiliary Files"
+        },
+        {
+          "unit_id": "pep-0001:u22",
+          "page": 22,
+          "char_start": 34704,
+          "char_end": 36272,
+          "n_chars": 1568,
+          "section_at_start": "Transferring PEP Ownership"
+        },
+        {
+          "unit_id": "pep-0001:u23",
+          "page": 23,
+          "char_start": 36274,
+          "char_end": 38526,
+          "n_chars": 2252,
+          "section_at_start": "PEP Editor Responsibilities & Workflow"
+        }
+      ],
+      "n_units": 23,
+      "processing_log": [
+        "excluded sections: ['Footnotes', 'Copyright']"
+      ]
+    },
+    {
+      "source_id": "pep-0008",
+      "title": "Style Guide for Python Code",
+      "pep_type": "Process",
+      "status": "Active",
+      "python_version": null,
+      "created": "05-Jul-2001",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/155e5bee7d985ef30555b496eb994d24a591f70b/peps/pep-0008.rst",
+      "local_path": "starter/data/raw/pep-0008.rst",
+      "license_or_permission": "This document has been placed in the public domain.",
+      "accessed_at": "2026-11-13",
+      "snapshot": "https://github.com/python/peps @ 155e5bee7d985ef30555b496eb994d24a591f70b (2026-11-12T16:11:20Z)",
+      "raw_chars": 50782,
+      "normalized_chars": 46138,
+      "excluded_sections": [
+        "References",
+        "Copyright"
+      ],
+      "physical_pages": "N/A (reStructuredText, no pagination)",
+      "units": [
+        {
+          "unit_id": "pep-0008:u01",
+          "page": 1,
+          "char_start": 0,
+          "char_end": 1563,
+          "n_chars": 1563,
+          "section_at_start": "Introduction"
+        },
+        {
+          "unit_id": "pep-0008:u02",
+          "page": 2,
+          "char_start": 1565,
+          "char_end": 3149,
+          "n_chars": 1584,
+          "section_at_start": "A Foolish Consistency is the Hobgoblin of Little Minds"
+        },
+        {
+          "unit_id": "pep-0008:u03",
+          "page": 3,
+          "char_start": 3151,
+          "char_end": 4769,
+          "n_chars": 1618,
+          "section_at_start": "Code Lay-out > Indentation"
+        },
+        {
+          "unit_id": "pep-0008:u04",
+          "page": 4,
+          "char_start": 4771,
+          "char_end": 6564,
+          "n_chars": 1793,
+          "section_at_start": "Code Lay-out > Indentation"
+        },
+        {
+          "unit_id": "pep-0008:u05",
+          "page": 5,
+          "char_start": 6566,
+          "char_end": 8288,
+          "n_chars": 1722,
+          "section_at_start": "Code Lay-out > Maximum Line Length"
+        },
+        {
+          "unit_id": "pep-0008:u06",
+          "page": 6,
+          "char_start": 8290,
+          "char_end": 10100,
+          "n_chars": 1810,
+          "section_at_start": "Code Lay-out > Should a Line Break Before or After a Binary Operator?"
+        },
+        {
+          "unit_id": "pep-0008:u07",
+          "page": 7,
+          "char_start": 10102,
+          "char_end": 11683,
+          "n_chars": 1581,
+          "section_at_start": "Code Lay-out > Source File Encoding"
+        },
+        {
+          "unit_id": "pep-0008:u08",
+          "page": 8,
+          "char_start": 11685,
+          "char_end": 13527,
+          "n_chars": 1842,
+          "section_at_start": "Code Lay-out > Imports"
+        },
+        {
+          "unit_id": "pep-0008:u09",
+          "page": 9,
+          "char_start": 13529,
+          "char_end": 15084,
+          "n_chars": 1555,
+          "section_at_start": "Code Lay-out > Module Level Dunder Names"
+        },
+        {
+          "unit_id": "pep-0008:u10",
+          "page": 10,
+          "char_start": 15086,
+          "char_end": 16646,
+          "n_chars": 1560,
+          "section_at_start": "Whitespace in Expressions and Statements > Pet Peeves"
+        },
+        {
+          "unit_id": "pep-0008:u11",
+          "page": 11,
+          "char_start": 16648,
+          "char_end": 18211,
+          "n_chars": 1563,
+          "section_at_start": "Whitespace in Expressions and Statements > Other Recommendations"
+        },
+        {
+          "unit_id": "pep-0008:u12",
+          "page": 12,
+          "char_start": 18213,
+          "char_end": 19913,
+          "n_chars": 1700,
+          "section_at_start": "Whitespace in Expressions and Statements > Other Recommendations"
+        },
+        {
+          "unit_id": "pep-0008:u13",
+          "page": 13,
+          "char_start": 19915,
+          "char_end": 21433,
+          "n_chars": 1518,
+          "section_at_start": "When to Use Trailing Commas"
+        },
+        {
+          "unit_id": "pep-0008:u14",
+          "page": 14,
+          "char_start": 21435,
+          "char_end": 22988,
+          "n_chars": 1553,
+          "section_at_start": "Comments > Inline Comments"
+        },
+        {
+          "unit_id": "pep-0008:u15",
+          "page": 15,
+          "char_start": 22990,
+          "char_end": 24648,
+          "n_chars": 1658,
+          "section_at_start": "Naming Conventions > Overriding Principle"
+        },
+        {
+          "unit_id": "pep-0008:u16",
+          "page": 16,
+          "char_start": 24650,
+          "char_end": 26226,
+          "n_chars": 1576,
+          "section_at_start": "Naming Conventions > Descriptive: Naming Styles"
+        },
+        {
+          "unit_id": "pep-0008:u17",
+          "page": 17,
+          "char_start": 26228,
+          "char_end": 27919,
+          "n_chars": 1691,
+          "section_at_start": "Naming Conventions > Prescriptive: Naming Conventions > Package and Module Names"
+        },
+        {
+          "unit_id": "pep-0008:u18",
+          "page": 18,
+          "char_start": 27921,
+          "char_end": 29451,
+          "n_chars": 1530,
+          "section_at_start": "Naming Conventions > Prescriptive: Naming Conventions > Function and Variable Names"
+        },
+        {
+          "unit_id": "pep-0008:u19",
+          "page": 19,
+          "char_start": 29453,
+          "char_end": 31267,
+          "n_chars": 1814,
+          "section_at_start": "Naming Conventions > Prescriptive: Naming Conventions > Constants"
+        },
+        {
+          "unit_id": "pep-0008:u20",
+          "page": 20,
+          "char_start": 31269,
+          "char_end": 32841,
+          "n_chars": 1572,
+          "section_at_start": "Naming Conventions > Prescriptive: Naming Conventions > Designing for Inheritance"
+        },
+        {
+          "unit_id": "pep-0008:u21",
+          "page": 21,
+          "char_start": 32843,
+          "char_end": 34475,
+          "n_chars": 1632,
+          "section_at_start": "Naming Conventions > Prescriptive: Naming Conventions > Designing for Inheritance"
+        },
+        {
+          "unit_id": "pep-0008:u22",
+          "page": 22,
+          "char_start": 34477,
+          "char_end": 35992,
+          "n_chars": 1515,
+          "section_at_start": "Programming Recommendations"
+        },
+        {
+          "unit_id": "pep-0008:u23",
+          "page": 23,
+          "char_start": 35994,
+          "char_end": 37620,
+          "n_chars": 1626,
+          "section_at_start": "Programming Recommendations"
+        },
+        {
+          "unit_id": "pep-0008:u24",
+          "page": 24,
+          "char_start": 37622,
+          "char_end": 39137,
+          "n_chars": 1515,
+          "section_at_start": "Programming Recommendations"
+        },
+        {
+          "unit_id": "pep-0008:u25",
+          "page": 25,
+          "char_start": 39139,
+          "char_end": 40729,
+          "n_chars": 1590,
+          "section_at_start": "Programming Recommendations"
+        },
+        {
+          "unit_id": "pep-0008:u26",
+          "page": 26,
+          "char_start": 40731,
+          "char_end": 42350,
+          "n_chars": 1619,
+          "section_at_start": "Programming Recommendations"
+        },
+        {
+          "unit_id": "pep-0008:u27",
+          "page": 27,
+          "char_start": 42352,
+          "char_end": 43943,
+          "n_chars": 1591,
+          "section_at_start": "Programming Recommendations"
+        },
+        {
+          "unit_id": "pep-0008:u28",
+          "page": 28,
+          "char_start": 43945,
+          "char_end": 46138,
+          "n_chars": 2193,
+          "section_at_start": "Programming Recommendations > Function Annotations"
+        }
+      ],
+      "n_units": 28,
+      "processing_log": [
+        "excluded sections: ['References', 'Copyright']"
+      ]
+    },
+    {
+      "source_id": "pep-0257",
+      "title": "Docstring Conventions",
+      "pep_type": "Informational",
+      "status": "Active",
+      "python_version": null,
+      "created": "29-May-2001",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/155e5bee7d985ef30555b496eb994d24a591f70b/peps/pep-0257.rst",
+      "local_path": "starter/data/raw/pep-0257.rst",
+      "license_or_permission": "This document has been placed in the public domain.",
+      "accessed_at": "2026-11-13",
+      "snapshot": "https://github.com/python/peps @ 155e5bee7d985ef30555b496eb994d24a591f70b (2026-11-12T16:11:20Z)",
+      "raw_chars": 10581,
+      "normalized_chars": 9947,
+      "excluded_sections": [
+        "Copyright"
+      ],
+      "physical_pages": "N/A (reStructuredText, no pagination)",
+      "units": [
+        {
+          "unit_id": "pep-0257:u01",
+          "page": 1,
+          "char_start": 0,
+          "char_end": 1716,
+          "n_chars": 1716,
+          "section_at_start": "Abstract"
+        },
+        {
+          "unit_id": "pep-0257:u02",
+          "page": 2,
+          "char_start": 1718,
+          "char_end": 3264,
+          "n_chars": 1546,
+          "section_at_start": "Specification > What is a Docstring?"
+        },
+        {
+          "unit_id": "pep-0257:u03",
+          "page": 3,
+          "char_start": 3266,
+          "char_end": 5098,
+          "n_chars": 1832,
+          "section_at_start": "Specification > One-line Docstrings"
+        },
+        {
+          "unit_id": "pep-0257:u04",
+          "page": 4,
+          "char_start": 5100,
+          "char_end": 6682,
+          "n_chars": 1582,
+          "section_at_start": "Specification > Multi-line Docstrings"
+        },
+        {
+          "unit_id": "pep-0257:u05",
+          "page": 5,
+          "char_start": 6684,
+          "char_end": 9947,
+          "n_chars": 3263,
+          "section_at_start": "Specification > Multi-line Docstrings"
+        }
+      ],
+      "n_units": 5,
+      "processing_log": [
+        "excluded sections: ['Copyright']"
+      ]
+    },
+    {
+      "source_id": "pep-0498",
+      "title": "Literal String Interpolation",
+      "pep_type": "Standards Track",
+      "status": "Final",
+      "python_version": "3.6",
+      "created": "01-Aug-2015",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/155e5bee7d985ef30555b496eb994d24a591f70b/peps/pep-0498.rst",
+      "local_path": "starter/data/raw/pep-0498.rst",
+      "license_or_permission": "This document has been placed in the public domain.",
+      "accessed_at": "2026-11-13",
+      "snapshot": "https://github.com/python/peps @ 155e5bee7d985ef30555b496eb994d24a591f70b (2026-11-12T16:11:20Z)",
+      "raw_chars": 25103,
+      "normalized_chars": 22555,
+      "excluded_sections": [
+        "References",
+        "Copyright"
+      ],
+      "physical_pages": "N/A (reStructuredText, no pagination)",
+      "units": [
+        {
+          "unit_id": "pep-0498:u01",
+          "page": 1,
+          "char_start": 0,
+          "char_end": 1590,
+          "n_chars": 1590,
+          "section_at_start": "Abstract"
+        },
+        {
+          "unit_id": "pep-0498:u02",
+          "page": 2,
+          "char_start": 1592,
+          "char_end": 3181,
+          "n_chars": 1589,
+          "section_at_start": "Rationale"
+        },
+        {
+          "unit_id": "pep-0498:u03",
+          "page": 3,
+          "char_start": 3183,
+          "char_end": 4891,
+          "n_chars": 1708,
+          "section_at_start": "Rationale"
+        },
+        {
+          "unit_id": "pep-0498:u04",
+          "page": 4,
+          "char_start": 4893,
+          "char_end": 6560,
+          "n_chars": 1667,
+          "section_at_start": "Rationale > No use of globals() or locals()"
+        },
+        {
+          "unit_id": "pep-0498:u05",
+          "page": 5,
+          "char_start": 6562,
+          "char_end": 8080,
+          "n_chars": 1518,
+          "section_at_start": "Specification"
+        },
+        {
+          "unit_id": "pep-0498:u06",
+          "page": 6,
+          "char_start": 8082,
+          "char_end": 9596,
+          "n_chars": 1514,
+          "section_at_start": "Specification"
+        },
+        {
+          "unit_id": "pep-0498:u07",
+          "page": 7,
+          "char_start": 9598,
+          "char_end": 11329,
+          "n_chars": 1731,
+          "section_at_start": "Specification > Escape sequences"
+        },
+        {
+          "unit_id": "pep-0498:u08",
+          "page": 8,
+          "char_start": 11331,
+          "char_end": 12923,
+          "n_chars": 1592,
+          "section_at_start": "Specification > Expression evaluation"
+        },
+        {
+          "unit_id": "pep-0498:u09",
+          "page": 9,
+          "char_start": 12925,
+          "char_end": 14481,
+          "n_chars": 1556,
+          "section_at_start": "Specification > Concatenating strings"
+        },
+        {
+          "unit_id": "pep-0498:u10",
+          "page": 10,
+          "char_start": 14483,
+          "char_end": 16042,
+          "n_chars": 1559,
+          "section_at_start": "Specification > Evaluation order of expressions"
+        },
+        {
+          "unit_id": "pep-0498:u11",
+          "page": 11,
+          "char_start": 16044,
+          "char_end": 17579,
+          "n_chars": 1535,
+          "section_at_start": "Discussion > python-ideas discussion > How to specify the location of expressions in f-strings"
+        },
+        {
+          "unit_id": "pep-0498:u12",
+          "page": 12,
+          "char_start": 17581,
+          "char_end": 19195,
+          "n_chars": 1614,
+          "section_at_start": "Discussion > Similar support in other languages"
+        },
+        {
+          "unit_id": "pep-0498:u13",
+          "page": 13,
+          "char_start": 19197,
+          "char_end": 20816,
+          "n_chars": 1619,
+          "section_at_start": "Discussion > Raw f-strings"
+        },
+        {
+          "unit_id": "pep-0498:u14",
+          "page": 14,
+          "char_start": 20818,
+          "char_end": 22555,
+          "n_chars": 1737,
+          "section_at_start": "Discussion > Lambdas inside expressions"
+        }
+      ],
+      "n_units": 14,
+      "processing_log": [
+        "excluded sections: ['References', 'Copyright']"
+      ]
+    },
+    {
+      "source_id": "pep-0572",
+      "title": "Assignment Expressions",
+      "pep_type": "Standards Track",
+      "status": "Final",
+      "python_version": "3.8",
+      "created": "28-Feb-2018",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/155e5bee7d985ef30555b496eb994d24a591f70b/peps/pep-0572.rst",
+      "local_path": "starter/data/raw/pep-0572.rst",
+      "license_or_permission": "This document has been placed in the public domain.",
+      "accessed_at": "2026-11-13",
+      "snapshot": "https://github.com/python/peps @ 155e5bee7d985ef30555b496eb994d24a591f70b (2026-11-12T16:11:20Z)",
+      "raw_chars": 47028,
+      "normalized_chars": 44653,
+      "excluded_sections": [
+        "References",
+        "Copyright"
+      ],
+      "physical_pages": "N/A (reStructuredText, no pagination)",
+      "units": [
+        {
+          "unit_id": "pep-0572:u01",
+          "page": 1,
+          "char_start": 0,
+          "char_end": 1541,
+          "n_chars": 1541,
+          "section_at_start": "Abstract"
+        },
+        {
+          "unit_id": "pep-0572:u02",
+          "page": 2,
+          "char_start": 1543,
+          "char_end": 3064,
+          "n_chars": 1521,
+          "section_at_start": "Rationale > The importance of real code"
+        },
+        {
+          "unit_id": "pep-0572:u03",
+          "page": 3,
+          "char_start": 3066,
+          "char_end": 4641,
+          "n_chars": 1575,
+          "section_at_start": "Rationale > The importance of real code"
+        },
+        {
+          "unit_id": "pep-0572:u04",
+          "page": 4,
+          "char_start": 4643,
+          "char_end": 6159,
+          "n_chars": 1516,
+          "section_at_start": "Syntax and semantics"
+        },
+        {
+          "unit_id": "pep-0572:u05",
+          "page": 5,
+          "char_start": 6161,
+          "char_end": 7748,
+          "n_chars": 1587,
+          "section_at_start": "Syntax and semantics > Exceptional cases"
+        },
+        {
+          "unit_id": "pep-0572:u06",
+          "page": 6,
+          "char_start": 7750,
+          "char_end": 9415,
+          "n_chars": 1665,
+          "section_at_start": "Syntax and semantics > Exceptional cases"
+        },
+        {
+          "unit_id": "pep-0572:u07",
+          "page": 7,
+          "char_start": 9417,
+          "char_end": 11118,
+          "n_chars": 1701,
+          "section_at_start": "Syntax and semantics > Scope of the target"
+        },
+        {
+          "unit_id": "pep-0572:u08",
+          "page": 8,
+          "char_start": 11120,
+          "char_end": 12663,
+          "n_chars": 1543,
+          "section_at_start": "Syntax and semantics > Scope of the target"
+        },
+        {
+          "unit_id": "pep-0572:u09",
+          "page": 9,
+          "char_start": 12665,
+          "char_end": 14210,
+          "n_chars": 1545,
+          "section_at_start": "Syntax and semantics > Scope of the target"
+        },
+        {
+          "unit_id": "pep-0572:u10",
+          "page": 10,
+          "char_start": 14212,
+          "char_end": 15792,
+          "n_chars": 1580,
+          "section_at_start": "Syntax and semantics > Relative precedence of `:=`"
+        },
+        {
+          "unit_id": "pep-0572:u11",
+          "page": 11,
+          "char_start": 15794,
+          "char_end": 17850,
+          "n_chars": 2056,
+          "section_at_start": "Syntax and semantics > Differences between  assignment expressions and assignment statements"
+        },
+        {
+          "unit_id": "pep-0572:u12",
+          "page": 12,
+          "char_start": 17852,
+          "char_end": 19416,
+          "n_chars": 1564,
+          "section_at_start": "Examples"
+        },
+        {
+          "unit_id": "pep-0572:u13",
+          "page": 13,
+          "char_start": 19418,
+          "char_end": 20946,
+          "n_chars": 1528,
+          "section_at_start": "Examples > Examples from the Python standard library > datetime.py"
+        },
+        {
+          "unit_id": "pep-0572:u14",
+          "page": 14,
+          "char_start": 20948,
+          "char_end": 22481,
+          "n_chars": 1533,
+          "section_at_start": "Examples > Simplifying list comprehensions"
+        },
+        {
+          "unit_id": "pep-0572:u15",
+          "page": 15,
+          "char_start": 22483,
+          "char_end": 24137,
+          "n_chars": 1654,
+          "section_at_start": "Examples > Fork"
+        },
+        {
+          "unit_id": "pep-0572:u16",
+          "page": 16,
+          "char_start": 24139,
+          "char_end": 25666,
+          "n_chars": 1527,
+          "section_at_start": "Rejected alternative proposals > Alternative spellings"
+        },
+        {
+          "unit_id": "pep-0572:u17",
+          "page": 17,
+          "char_start": 25668,
+          "char_end": 27445,
+          "n_chars": 1777,
+          "section_at_start": "Rejected alternative proposals > Alternative spellings"
+        },
+        {
+          "unit_id": "pep-0572:u18",
+          "page": 18,
+          "char_start": 27447,
+          "char_end": 28963,
+          "n_chars": 1516,
+          "section_at_start": "Rejected alternative proposals > Special-casing conditional statements"
+        },
+        {
+          "unit_id": "pep-0572:u19",
+          "page": 19,
+          "char_start": 28965,
+          "char_end": 30628,
+          "n_chars": 1663,
+          "section_at_start": "Rejected alternative proposals > Special-casing comprehensions"
+        },
+        {
+          "unit_id": "pep-0572:u20",
+          "page": 20,
+          "char_start": 30630,
+          "char_end": 32498,
+          "n_chars": 1868,
+          "section_at_start": "Rejected alternative proposals > Lowering operator precedence"
+        },
+        {
+          "unit_id": "pep-0572:u21",
+          "page": 21,
+          "char_start": 32500,
+          "char_end": 34050,
+          "n_chars": 1550,
+          "section_at_start": "Frequently Raised Objections > With assignment expressions, why bother with assignment statements?"
+        },
+        {
+          "unit_id": "pep-0572:u22",
+          "page": 22,
+          "char_start": 34052,
+          "char_end": 35719,
+          "n_chars": 1667,
+          "section_at_start": "Style guide recommendations"
+        },
+        {
+          "unit_id": "pep-0572:u23",
+          "page": 23,
+          "char_start": 35721,
+          "char_end": 37356,
+          "n_chars": 1635,
+          "section_at_start": "Appendix A: Tim Peters's findings"
+        },
+        {
+          "unit_id": "pep-0572:u24",
+          "page": 24,
+          "char_start": 37358,
+          "char_end": 38890,
+          "n_chars": 1532,
+          "section_at_start": "Appendix A: Tim Peters's findings"
+        },
+        {
+          "unit_id": "pep-0572:u25",
+          "page": 25,
+          "char_start": 38892,
+          "char_end": 40592,
+          "n_chars": 1700,
+          "section_at_start": "Appendix A: Tim Peters's findings > A numeric example"
+        },
+        {
+          "unit_id": "pep-0572:u26",
+          "page": 26,
+          "char_start": 40594,
+          "char_end": 42135,
+          "n_chars": 1541,
+          "section_at_start": "Appendix B: Rough code translations for comprehensions"
+        },
+        {
+          "unit_id": "pep-0572:u27",
+          "page": 27,
+          "char_start": 42137,
+          "char_end": 44653,
+          "n_chars": 2516,
+          "section_at_start": "Appendix B: Rough code translations for comprehensions"
+        }
+      ],
+      "n_units": 27,
+      "processing_log": [
+        "excluded sections: ['References', 'Copyright']"
+      ]
+    },
+    {
+      "source_id": "pep-0636",
+      "title": "Structural Pattern Matching: Tutorial",
+      "pep_type": "Informational",
+      "status": "Final",
+      "python_version": "3.10",
+      "created": "12-Sep-2020",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/155e5bee7d985ef30555b496eb994d24a591f70b/peps/pep-0636.rst",
+      "local_path": "starter/data/raw/pep-0636.rst",
+      "license_or_permission": "This document is placed in the public domain or under the CC0-1.0-Universal license, whichever is more permissive.",
+      "accessed_at": "2026-11-13",
+      "snapshot": "https://github.com/python/peps @ 155e5bee7d985ef30555b496eb994d24a591f70b (2026-11-12T16:11:20Z)",
+      "raw_chars": 25325,
+      "normalized_chars": 24041,
+      "excluded_sections": [
+        "Copyright"
+      ],
+      "physical_pages": "N/A (reStructuredText, no pagination)",
+      "units": [
+        {
+          "unit_id": "pep-0636:u01",
+          "page": 1,
+          "char_start": 0,
+          "char_end": 1556,
+          "n_chars": 1556,
+          "section_at_start": "Abstract"
+        },
+        {
+          "unit_id": "pep-0636:u02",
+          "page": 2,
+          "char_start": 1558,
+          "char_end": 3278,
+          "n_chars": 1720,
+          "section_at_start": "Tutorial > Matching sequences"
+        },
+        {
+          "unit_id": "pep-0636:u03",
+          "page": 3,
+          "char_start": 3280,
+          "char_end": 4845,
+          "n_chars": 1565,
+          "section_at_start": "Tutorial > Matching multiple patterns"
+        },
+        {
+          "unit_id": "pep-0636:u04",
+          "page": 4,
+          "char_start": 4847,
+          "char_end": 6449,
+          "n_chars": 1602,
+          "section_at_start": "Tutorial > Matching specific values"
+        },
+        {
+          "unit_id": "pep-0636:u05",
+          "page": 5,
+          "char_start": 6451,
+          "char_end": 8225,
+          "n_chars": 1774,
+          "section_at_start": "Tutorial > Adding a wildcard"
+        },
+        {
+          "unit_id": "pep-0636:u06",
+          "page": 6,
+          "char_start": 8227,
+          "char_end": 9727,
+          "n_chars": 1500,
+          "section_at_start": "Tutorial > Or patterns"
+        },
+        {
+          "unit_id": "pep-0636:u07",
+          "page": 7,
+          "char_start": 9729,
+          "char_end": 11300,
+          "n_chars": 1571,
+          "section_at_start": "Tutorial > Capturing matched sub-patterns"
+        },
+        {
+          "unit_id": "pep-0636:u08",
+          "page": 8,
+          "char_start": 11302,
+          "char_end": 13171,
+          "n_chars": 1869,
+          "section_at_start": "Tutorial > Adding conditions to patterns"
+        },
+        {
+          "unit_id": "pep-0636:u09",
+          "page": 9,
+          "char_start": 13173,
+          "char_end": 14938,
+          "n_chars": 1765,
+          "section_at_start": "Tutorial > Adding a UI: Matching objects"
+        },
+        {
+          "unit_id": "pep-0636:u10",
+          "page": 10,
+          "char_start": 14940,
+          "char_end": 16486,
+          "n_chars": 1546,
+          "section_at_start": "Tutorial > Matching positional attributes"
+        },
+        {
+          "unit_id": "pep-0636:u11",
+          "page": 11,
+          "char_start": 16488,
+          "char_end": 18452,
+          "n_chars": 1964,
+          "section_at_start": "Tutorial > Going to the cloud: Mappings"
+        },
+        {
+          "unit_id": "pep-0636:u12",
+          "page": 12,
+          "char_start": 18454,
+          "char_end": 20183,
+          "n_chars": 1729,
+          "section_at_start": "Tutorial > Matching builtin classes"
+        },
+        {
+          "unit_id": "pep-0636:u13",
+          "page": 13,
+          "char_start": 20185,
+          "char_end": 21695,
+          "n_chars": 1510,
+          "section_at_start": "Appendix A -- Quick Intro"
+        },
+        {
+          "unit_id": "pep-0636:u14",
+          "page": 14,
+          "char_start": 21697,
+          "char_end": 24041,
+          "n_chars": 2344,
+          "section_at_start": "Appendix A -- Quick Intro"
+        }
+      ],
+      "n_units": 14,
+      "processing_log": [
+        "excluded sections: ['Copyright']"
+      ]
+    }
+  ]
+}

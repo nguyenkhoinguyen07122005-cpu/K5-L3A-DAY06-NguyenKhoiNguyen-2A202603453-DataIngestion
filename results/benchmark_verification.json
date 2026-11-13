@@ -1,0 +1,277 @@
+{
+  "checked_at": "2026-11-13T02:35:44+00:00",
+  "n_questions": 25,
+  "split": {
+    "dev": 19,
+    "test": 6
+  },
+  "filter_questions": {
+    "dev": 3,
+    "test": 2
+  },
+  "types": {
+    "direct": 7,
+    "condition": 7,
+    "paraphrase": 6,
+    "metadata_filter": 5
+  },
+  "all_evidence_found": true,
+  "rows": [
+    {
+      "id": "d01",
+      "source_id": "pep-0008",
+      "page": 4,
+      "unit_id": "pep-0008:u04",
+      "found": true,
+      "evidence_chars": 46
+    },
+    {
+      "id": "d02",
+      "source_id": "pep-0008",
+      "page": 5,
+      "unit_id": "pep-0008:u05",
+      "found": true,
+      "evidence_chars": 234
+    },
+    {
+      "id": "d03",
+      "source_id": "pep-0008",
+      "page": 2,
+      "unit_id": "pep-0008:u02",
+      "found": true,
+      "evidence_chars": 35
+    },
+    {
+      "id": "d04",
+      "source_id": "pep-0008",
+      "page": 7,
+      "unit_id": "pep-0008:u07",
+      "found": true,
+      "evidence_chars": 107
+    },
+    {
+      "id": "d05",
+      "source_id": "pep-0008",
+      "page": 24,
+      "unit_id": "pep-0008:u24",
+      "found": true,
+      "evidence_chars": 168
+    },
+    {
+      "id": "d06",
+      "source_id": "pep-0008",
+      "page": 22,
+      "unit_id": "pep-0008:u22",
+      "found": true,
+      "evidence_chars": 110
+    },
+    {
+      "id": "d07",
+      "source_id": "pep-0001",
+      "page": 2,
+      "unit_id": "pep-0001:u02",
+      "found": true,
+      "evidence_chars": 87
+    },
+    {
+      "id": "d08",
+      "source_id": "pep-0001",
+      "page": 10,
+      "unit_id": "pep-0001:u10",
+      "found": true,
+      "evidence_chars": 61
+    },
+    {
+      "id": "d09",
+      "source_id": "pep-0001",
+      "page": 11,
+      "unit_id": "pep-0001:u11",
+      "found": true,
+      "evidence_chars": 102
+    },
+    {
+      "id": "d10",
+      "source_id": "pep-0001",
+      "page": 14,
+      "unit_id": "pep-0001:u14",
+      "found": true,
+      "evidence_chars": 83
+    },
+    {
+      "id": "d11",
+      "source_id": "pep-0257",
+      "page": 2,
+      "unit_id": "pep-0257:u02",
+      "found": true,
+      "evidence_chars": 153
+    },
+    {
+      "id": "d12",
+      "source_id": "pep-0498",
+      "page": 4,
+      "unit_id": "pep-0498:u04",
+      "found": true,
+      "evidence_chars": 84
+    },
+    {
+      "id": "d12",
+      "source_id": "pep-0498",
+      "page": 13,
+      "unit_id": "pep-0498:u13",
+      "found": true,
+      "evidence_chars": 53
+    },
+    {
+      "id": "d13",
+      "source_id": "pep-0498",
+      "page": 7,
+      "unit_id": "pep-0498:u07",
+      "found": true,
+      "evidence_chars": 99
+    },
+    {
+      "id": "d13",
+      "source_id": "pep-0498",
+      "page": 5,
+      "unit_id": "pep-0498:u05",
+      "found": true,
+      "evidence_chars": 97
+    },
+    {
+      "id": "d14",
+      "source_id": "pep-0572",
+      "page": 4,
+      "unit_id": "pep-0572:u04",
+      "found": true,
+      "evidence_chars": 98
+    },
+    {
+      "id": "d14",
+      "source_id": "pep-0572",
+      "page": 9,
+      "unit_id": "pep-0572:u09",
+      "found": true,
+      "evidence_chars": 45
+    },
+    {
+      "id": "d15",
+      "source_id": "pep-0572",
+      "page": 6,
+      "unit_id": "pep-0572:u06",
+      "found": true,
+      "evidence_chars": 132
+    },
+    {
+      "id": "d15",
+      "source_id": "pep-0572",
+      "page": 14,
+      "unit_id": "pep-0572:u14",
+      "found": true,
+      "evidence_chars": 73
+    },
+    {
+      "id": "d16",
+      "source_id": "pep-0636",
+      "page": 3,
+      "unit_id": "pep-0636:u03",
+      "found": true,
+      "evidence_chars": 113
+    },
+    {
+      "id": "d17",
+      "source_id": "pep-0257",
+      "page": 5,
+      "unit_id": "pep-0257:u05",
+      "found": true,
+      "evidence_chars": 93
+    },
+    {
+      "id": "d18",
+      "source_id": "pep-0572",
+      "page": 10,
+      "unit_id": "pep-0572:u10",
+      "found": true,
+      "evidence_chars": 53
+    },
+    {
+      "id": "d19",
+      "source_id": "pep-0636",
+      "page": 7,
+      "unit_id": "pep-0636:u07",
+      "found": true,
+      "evidence_chars": 101
+    },
+    {
+      "id": "d19",
+      "source_id": "pep-0636",
+      "page": 14,
+      "unit_id": "pep-0636:u14",
+      "found": true,
+      "evidence_chars": 50
+    },
+    {
+      "id": "t01",
+      "source_id": "pep-0008",
+      "page": 18,
+      "unit_id": "pep-0008:u18",
+      "found": true,
+      "evidence_chars": 135
+    },
+    {
+      "id": "t02",
+      "source_id": "pep-0001",
+      "page": 12,
+      "unit_id": "pep-0001:u12",
+      "found": true,
+      "evidence_chars": 139
+    },
+    {
+      "id": "t03",
+      "source_id": "pep-0572",
+      "page": 9,
+      "unit_id": "pep-0572:u09",
+      "found": true,
+      "evidence_chars": 139
+    },
+    {
+      "id": "t04",
+      "source_id": "pep-0636",
+      "page": 4,
+      "unit_id": "pep-0636:u04",
+      "found": true,
+      "evidence_chars": 145
+    },
+    {
+      "id": "t04",
+      "source_id": "pep-0636",
+      "page": 14,
+      "unit_id": "pep-0636:u14",
+      "found": true,
+      "evidence_chars": 115
+    },
+    {
+      "id": "t05",
+      "source_id": "pep-0498",
+      "page": 5,
+      "unit_id": "pep-0498:u05",
+      "found": true,
+      "evidence_chars": 74
+    },
+    {
+      "id": "t06",
+      "source_id": "pep-0636",
+      "page": 5,
+      "unit_id": "pep-0636:u05",
+      "found": true,
+      "evidence_chars": 113
+    },
+    {
+      "id": "t06",
+      "source_id": "pep-0636",
+      "page": 12,
+      "unit_id": "pep-0636:u12",
+      "found": true,
+      "evidence_chars": 70
+    }
+  ]
+}

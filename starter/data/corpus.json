@@ -1,0 +1,16 @@
+{
+  "snapshot": {
+    "repository": "https://github.com/python/peps",
+    "commit": "155e5bee7d985ef30555b496eb994d24a591f70b",
+    "commit_date": "2026-11-12T16:11:20Z",
+    "accessed_at": "2026-11-13"
+  },
+  "documents": [
+    {"source_id": "pep-0001", "file": "raw/pep-0001.rst"},
+    {"source_id": "pep-0008", "file": "raw/pep-0008.rst"},
+    {"source_id": "pep-0257", "file": "raw/pep-0257.rst"},
+    {"source_id": "pep-0498", "file": "raw/pep-0498.rst"},
+    {"source_id": "pep-0572", "file": "raw/pep-0572.rst"},
+    {"source_id": "pep-0636", "file": "raw/pep-0636.rst"}
+  ]
+}

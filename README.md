@@ -1,47 +1,69 @@
-# Day 06 · Data Ingestion Engineering
+# Day 06 · Data Ingestion Engineering — bài nộp cá nhân
 
-**Lab cá nhân** · **4 giờ** · **Dữ liệu tự chọn**
+Corpus **6 Python Enhancement Proposals (PEP)** → chuẩn hóa → chia 111 đơn vị nguồn (≥ 1.500 ký tự) → 3 chiến lược chunk/filter → embedding thật (`sentence-transformers/all-MiniLM-L6-v2`, local) → **PostgreSQL + pgvector** → benchmark 25 câu (19 dev / 6 test) với trace top-3 và audit thủ công.
 
-Biến tài liệu thành kho tri thức có thể truy xuất cho AI agent, rồi đo xem cách chuẩn bị dữ liệu nào hiệu quả nhất.
+Đề bài gốc: [docs/ASSIGNMENT_README.md](docs/ASSIGNMENT_README.md) · Báo cáo: [report/individual/2A202603453_NguyenKhoiNguyen.md](report/individual/2A202603453_NguyenKhoiNguyen.md) · Bảng kết quả: [results/summary.md](results/summary.md)
 
-| 📄 Dữ liệu | 🧩 Chiến lược | 🎯 Benchmark |
-|---|---|---|
-| Tối thiểu **30 trang nội dung** | Tối thiểu **3 cấu hình** | Tối thiểu **20 câu hỏi** |
+## Kết quả chính (đã chạy 2026-11-13)
 
-## Bắt đầu nhanh
+| Strategy | Dev Hit@1 | Dev Evidence Hit@3 | Test Hit@1 | Test Evidence Hit@3 | Chunks | Coherence /2 | Grounding test /2 | Filter tuân thủ (dev, test) |
+|---|---|---|---|---|---|---|---|---|
+| A fixed 500/50 | 7/19 | 14/19 | 0/6 | 2/6 | 460 | 0.9 | 0.83 | 2/3, 1/2 |
+| B paragraph ≤800 | 10/19 | 14/19 | 3/6 | 5/6 | 369 | 1.7 | 1.67 | 1/3, 1/2 |
+| C = B + filter `pep_type` | 10/19 | 14/19 | 3/6 | 5/6 | 369 | 1.7 | 1.67 | 3/3, 2/2 |
 
-Dùng [starter PostgreSQL + pgvector](starter/README.md) để dựng database và hoàn thiện các hàm TODO, hoặc tự chọn vector store tương đương. Starter chỉ là khung: **bạn tự hiện thực pipeline và benchmark**.
+Bộ test chỉ có 6 câu, nên các số trên chỉ minh họa cho corpus này, không dùng để kết luận chiến lược nào tốt nhất nói chung.
 
-## 1. Xây pipeline
+## Cấu trúc
 
-![Đọc tài liệu, chuẩn hóa, chia chunk, tạo vector, lưu và kiểm tra](assets/ingestion-pipeline.svg)
+```text
+STUDENT.md                      thông tin học viên
+README.md                       file này: setup, chạy, đường dẫn
+starter/src/                    code pipeline (ingestion, chunking, embeddings, store, evaluation, run, corpus)
+starter/scripts/                verify_benchmark.py, reingest_check.sh, summarize.py, gold_rank_diagnostic.py, fetch_corpus.py, check_setup.py
+starter/data/raw/               6 file PEP .rst (public domain / CC0) — snapshot python/peps@155e5be
+starter/data/corpus.json        danh sách tài liệu + commit snapshot
+data/manifest.json              manifest: nguồn, giấy phép, accessed_at, 111 unit (ID, ranh giới, số ký tự)
+benchmark/                      questions.jsonl (25 câu, gold + evidence + filter) và README (split, quy tắc chọn)
+artifacts/experiment_log.csv    cấu hình + giả thuyết + kết quả A/B/C
+results/                        ingest_stats, metrics_dev/test, traces_dev/test (top-3 đầy đủ), selection, reingest_check,
+                                run_log, chunks_A/B, summary.md/json, diagnostic_gold_rank
+results/audit/                  coherence_sample + coherence_labels, grounding_sheet + grounding_labels, metadata_check_test.csv
+report/individual/              báo cáo cá nhân
+```
 
-Chọn tài liệu được phép sử dụng; giữ **ID tài liệu, nguồn, trang/vị trí** và metadata phù hợp. Dùng embedding model thật qua API hoặc chạy local; lưu và truy xuất bằng pgvector, Qdrant, Chroma hoặc một store tương đương.
+## Cách chạy lại
 
-## 2. So sánh và đánh giá
+Yêu cầu: Python 3.11–3.14, Docker (cho pgvector), khoảng 2 GB đĩa cho torch và model. Không cần API key; chi phí $0.
 
-![Ba chiến lược được đánh giá trên cùng corpus và benchmark dev/test](assets/benchmark-workflow.svg)
+```bash
+cd starter
+python3 -m venv .venv && source .venv/bin/activate        # Windows: .venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+cp .env.example .env                                       # EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+docker compose -p day6_student_starter up -d --wait
+python scripts/check_setup.py                              # -> Setup OK
 
-Dùng cùng dữ liệu, model và câu hỏi cho cả ba cấu hình. Tách **15 câu dev / 5 câu test** trước khi chạy; chọn cấu hình trên dev, rồi đánh giá test sau khi cố định. Mỗi câu hỏi cần có đoạn bằng chứng và trang nguồn; thiết kế bộ câu hỏi và đánh giá theo [BENCHMARK.md](BENCHMARK.md).
+python scripts/verify_benchmark.py      # 1. kiểm chứng evidence của benchmark (trước khi truy xuất)
+python -m src.run ingest                # 2. corpus -> unit -> chunk A/B -> embedding -> pgvector (A, B, C)
+bash scripts/reingest_check.sh          # 3. nạp lại cùng phiên bản + mô phỏng tài liệu thay đổi (PY=python)
+python -m src.run benchmark --split dev # 4. trace + Hit@1/Hit@3 trên dev
+python -m src.run select                # 5. chọn chiến lược theo quy tắc chốt trước (chỉ dùng dev)
+python -m src.run benchmark --split test # 6. chạy test một lần
+python -m src.run audit-prep            # 7. tạo bảng mẫu coherence / grounding / metadata
+python scripts/summarize.py             # 8. gộp chỉ số + nhãn thủ công -> results/summary.md
+```
 
-Đánh giá theo năm khía cạnh: **độ chính xác truy xuất**, **tính mạch lạc của chunk**, **tính hữu dụng của metadata**, **chất lượng grounding** và **tác động của chiến lược dữ liệu**. Giải thích lựa chọn bằng kết quả, ví dụ lỗi và các đánh đổi.
+`python -m src.run all` chạy liên tiếp các bước 2, 4, 5, 6 và 7. Nhãn thủ công nằm trong `results/audit/*_labels.csv`; code không sinh nhãn.
 
-## 3. Chuẩn bị bài nộp
+Nếu không tải được model từ Hugging Face, đặt `EMBEDDING_MODEL=<thư mục local>` chứa đúng các file của model. SHA-256 của `model.safetensors` đã dùng: `53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db`. Vector của câu "Hello world" đã được đối chiếu với vector tham chiếu công bố cho model này (`[-0.034477, 0.031023, 0.006735, 0.026109, -0.039362, …]`).
 
-1. Chạy pipeline và lưu cấu hình, kết quả top-3, trace cùng nhãn đánh giá thủ công.
-2. Điền [thông tin học viên](STUDENT.md), [nhật ký thí nghiệm](artifacts/experiment_log.csv) và bản sao [mẫu báo cáo cá nhân](report/individual/MSSV_HoTen.md).
-3. Kiểm tra mã nguồn, cách chạy, manifest dữ liệu và checklist trong [SUBMISSION.md](SUBMISSION.md).
+## Môi trường của lần chạy đã báo cáo
 
-## Tài liệu hướng dẫn
+- Linux container, 2 vCPU, không có GPU. Python 3.13.18, sentence-transformers 6.3.0, transformers 5.22.2, torch 2.15.0, psycopg 3.3.8, pgvector-python 0.5.1.
+- PostgreSQL 16.15 + pgvector **0.6.0**. Môi trường chạy không có Docker daemon, nên dùng PostgreSQL cài cục bộ ở cổng 55433, cùng user/db/password như `docker-compose.yml`. Image Docker của starter dùng pgvector 0.8.7. Truy vấn là exact search (`ORDER BY embedding <=> q`, không có index ANN), nên kết quả không phụ thuộc phiên bản pgvector.
+- Thời gian embed (CPU): A 6.23 s / 460 chunk, B 6.00 s / 369 chunk, C dùng lại vector của B. Truy vấn mất khoảng 2–3 ms/câu.
 
-| Bạn cần tìm | Tài liệu |
-|---|---|
-| Setup baseline PostgreSQL + pgvector | [starter/README.md](starter/README.md) |
-| Các bước làm và cách tính chỉ số | [GUIDE.md](GUIDE.md) |
-| Tiến độ trong 4 giờ | [CHECKPOINTS.md](CHECKPOINTS.md) |
-| Năm tiêu chí benchmark và bộ câu hỏi | [BENCHMARK.md](BENCHMARK.md) |
-| Tiêu chí chấm điểm | [RUBRIC.md](RUBRIC.md) |
-| Quy tắc sử dụng dữ liệu, AI và API | [RULES.md](RULES.md) |
-| Cách nộp bài | [SUBMISSION.md](SUBMISSION.md) |
+## Dữ liệu và quyền sử dụng
 
-[data/format-example.json](data/format-example.json) chỉ minh họa định dạng, không phải corpus đủ điều kiện. Phần xử lý và benchmark do bạn tự hiện thực; không bắt buộc xây chatbot.
+PEP 1, 8, 257, 498, 572, 636 lấy từ <https://github.com/python/peps> tại commit `155e5bee7d985ef30555b496eb994d24a591f70b` (truy cập 2026-11-13). Mỗi file có mục *Copyright* ghi "placed in the public domain" (PEP 1 và 636 ghi thêm "or under CC0-1.0-Universal"), nên được phép tái phân phối và gửi qua xử lý. Corpus không chứa dữ liệu cá nhân hay secret. `.env` nằm trong `.gitignore`.

@@ -1,0 +1,110 @@
+[
+  {
+    "run": "ingest_stats",
+    "A": {
+      "chunks": 460,
+      "new_embeds": 460,
+      "inserted_or_updated": 460,
+      "unchanged": 0,
+      "deleted": 0,
+      "rows": 460
+    },
+    "B": {
+      "chunks": 369,
+      "new_embeds": 368,
+      "inserted_or_updated": 369,
+      "unchanged": 0,
+      "deleted": 0,
+      "rows": 369
+    },
+    "C": {
+      "chunks": 369,
+      "new_embeds": 0,
+      "inserted_or_updated": 369,
+      "unchanged": 0,
+      "deleted": 0,
+      "rows": 369
+    }
+  },
+  {
+    "run": "ingest_rerun_same",
+    "A": {
+      "chunks": 460,
+      "new_embeds": 0,
+      "inserted_or_updated": 0,
+      "unchanged": 460,
+      "deleted": 0,
+      "rows": 460
+    },
+    "B": {
+      "chunks": 369,
+      "new_embeds": 0,
+      "inserted_or_updated": 0,
+      "unchanged": 369,
+      "deleted": 0,
+      "rows": 369
+    },
+    "C": {
+      "chunks": 369,
+      "new_embeds": 0,
+      "inserted_or_updated": 0,
+      "unchanged": 369,
+      "deleted": 0,
+      "rows": 369
+    }
+  },
+  {
+    "run": "ingest_rerun_changed",
+    "A": {
+      "chunks": 454,
+      "new_embeds": 3,
+      "inserted_or_updated": 3,
+      "unchanged": 451,
+      "deleted": 8,
+      "rows": 454
+    },
+    "B": {
+      "chunks": 365,
+      "new_embeds": 3,
+      "inserted_or_updated": 3,
+      "unchanged": 362,
+      "deleted": 6,
+      "rows": 365
+    },
+    "C": {
+      "chunks": 365,
+      "new_embeds": 0,
+      "inserted_or_updated": 3,
+      "unchanged": 362,
+      "deleted": 6,
+      "rows": 365
+    }
+  },
+  {
+    "run": "ingest_rerun_restored",
+    "A": {
+      "chunks": 460,
+      "new_embeds": 9,
+      "inserted_or_updated": 9,
+      "unchanged": 451,
+      "deleted": 2,
+      "rows": 460
+    },
+    "B": {
+      "chunks": 369,
+      "new_embeds": 7,
+      "inserted_or_updated": 7,
+      "unchanged": 362,
+      "deleted": 2,
+      "rows": 369
+    },
+    "C": {
+      "chunks": 369,
+      "new_embeds": 0,
+      "inserted_or_updated": 7,
+      "unchanged": 362,
+      "deleted": 2,
+      "rows": 369
+    }
+  }
+]

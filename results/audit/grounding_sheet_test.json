@@ -1,0 +1,524 @@
+[
+  {
+    "strategy": "A",
+    "question_id": "t01",
+    "question": "Is it acceptable to name functions in mixedCase?",
+    "expected_answer": "Only in contexts where mixedCase is already the prevailing style (e.g. threading.py), for backwards compatibility; otherwise use lowercase_with_underscores.",
+    "auto_hit_at_3": true,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0008:u15:fixed500o50:c01",
+        "score": 0.519218,
+        "text": "uppercase letter)\n- `lowercase`\n- `lower_case_with_underscores`\n- `UPPERCASE`\n- `UPPER_CASE_WITH_UNDERSCORES`\n- `CapitalizedWords` (or CapWords, or CamelCase -- so named because\n  of the bumpy look of its letters).  This is also sometimes known\n  as StudlyCaps.\n\n  Note: When using acronyms in CapWords, capitalize all the\n  letters of the acronym.  Thus HTTPServerError is better than\n  HttpServerError.\n- `mixedCase` (differs from CapitalizedWords by initial lowercase\n  character!)\n- `Capitalized_"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0572:u05:fixed500o50:c03",
+        "score": 0.480972,
+        "text": "da function is unlikely to be of\n  value, as there is no way to make use of it. In cases where the name will be\n  used more than once, the expression is likely to need parenthesizing anyway,\n  so this prohibition will rarely affect code."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0008:u18:fixed500o50:c00",
+        "score": 0.469616,
+        "text": "### Function and Variable Names\n\nFunction names should be lowercase, with words separated by\nunderscores as necessary to improve readability.\n\nVariable names follow the same convention as function names.\n\nmixedCase is allowed only in contexts where that's already the\nprevailing style (e.g. threading.py), to retain backwards\ncompatibility.\n\n### Function and Method Arguments\n\nAlways use `self` for the first argument to instance methods.\n\nAlways use `cls` for the first argument to class methods.\n\nI"
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "question_id": "t02",
+    "question": "At what point does an accepted PEP get the status Final?",
+    "expected_answer": "When its reference implementation is complete and incorporated into the main source code repository.",
+    "auto_hit_at_3": false,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0001:u13:fixed500o50:c01",
+        "score": 0.659861,
+        "text": " Status field, at the very least\nthe Resolution header should be added with a direct link\nto the relevant post making a decision on the PEP.\n\nPEPs can also be superseded by a different PEP, rendering the original\nobsolete.  This is intended for Informational PEPs, where version 2 of\nan API can replace version 1.\n\nThe possible paths of the status of PEPs are as follows:\n\nWhile not shown in the diagram, \"Accepted\" PEPs may technically move to\n\"Rejected\" or \"Withdrawn\" even after acceptance. This w"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0001:u06:fixed500o50:c02",
+        "score": 0.638167,
+        "text": " it back to\n  the author for revision, with specific instructions.\n\n* Once approved, they will assign your PEP a number.\n\nOnce the review process is complete, and the PEP editors approve it (note that\nthis is *not* the same as accepting your PEP!), they will squash commit your\npull request onto main.\n\nThe PEP editors will not unreasonably deny publication of a PEP.  Reasons for\ndenying PEP status include duplication of effort, being technically unsound,\nnot providing proper motivation or address"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0001:u13:fixed500o50:c00",
+        "score": 0.623347,
+        "text": "A PEP can also be \"Rejected\".  Perhaps after all is said and done it\nwas not a good idea.  It is still important to have a record of this\nfact. The \"Withdrawn\" status is similar - it means that the PEP author\nthemselves has decided that the PEP is actually a bad idea, or has\naccepted that a competing proposal is a better alternative.\n\nWhen a PEP is Accepted, Rejected or Withdrawn, the PEP should be updated\naccordingly. In addition to updating the Status field, at the very least\nthe Resolution he"
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "question_id": "t03",
+    "question": "Does := bind more or less tightly than a comma and than other operators?",
+    "expected_answer": "More tightly than a comma, but less tightly than all other operators (including or, and, not and conditional expressions).",
+    "auto_hit_at_3": false,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0572:u20:fixed500o50:c00",
+        "score": 0.621379,
+        "text": "While this behaviour would be convenient in many situations, it is also harder\nto explain than \"the := operator behaves just like the assignment statement\",\nand as such, the precedence for `:=` has been made as close as possible to\nthat of `=` (with the exception that it binds tighter than comma).\n\n## Allowing commas to the right\n\nSome critics have claimed that the assignment expressions should allow\nunparenthesized tuples on the right, so that these two would be equivalent:\n\n    (point := (x, y"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0572:u20:fixed500o50:c01",
+        "score": 0.573139,
+        "text": "hese two would be equivalent:\n\n    (point := (x, y))\n    (point := x, y)\n\n(With the current version of the proposal, the latter would be\nequivalent to `((point := x), y)`.)\n\nHowever, adopting this stance would logically lead to the conclusion\nthat when used in a function call, assignment expressions also bind\nless tight than comma, so we'd have the following confusing equivalence:\n\n    foo(x := 1, y)\n    foo(x := (1, y))\n\nThe less confusing option is to make `:=` bind more tightly than comma.\n\n#"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0572:u20:fixed500o50:c04",
+        "score": 0.498422,
+        "text": "semantics.  Thus this proposal uses `:=` to clarify the distinction."
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "question_id": "t04",
+    "question": "How are literal values in match patterns compared, and which literals are exceptions?",
+    "expected_answer": "With ==, except True, False and None, which are compared with `is` (identity).",
+    "auto_hit_at_3": false,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0636:u12:fixed500o50:c01",
+        "score": 0.583451,
+        "text": " A -- Quick Intro\n\nA match statement takes an expression and compares its value to successive\npatterns given as one or more case blocks.  This is superficially\nsimilar to a switch statement in C, Java or JavaScript (and many\nother languages), but much more powerful.\n\nThe simplest form compares a subject value against one or more literals:\n\n    def http_error(status):\n        match status:\n            case 400:\n                return \"Bad request\"\n            case 404:\n                return \"Not"
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0572:u03:fixed500o50:c02",
+        "score": 0.540307,
+        "text": "\n        match2 = pattern2.match(data)\n        if match2:\n            result = match2.group(2)\n        else:\n            result = None\n\n# Syntax and semantics\n\nIn most contexts where arbitrary Python expressions can be used, a\n**named expression** can appear.  This is of the form `NAME := expr`\nwhere `expr` is any valid Python expression other than an\nunparenthesized tuple, and `NAME` is an identifier.\n\nThe value of such a named expression is the same as the incorporated\nexpression, with the add"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0636:u05:fixed500o50:c01",
+        "score": 0.537609,
+        "text": ". Patterns can be nested within each other, and we\nhave been doing that implicitly in the examples above.\n\nThere are some \"simple\" patterns (\"simple\" here meaning that they do not contain other\npatterns) that we've seen:\n\n* **Capture patterns** (stand-alone names like `direction`, `action`, `objects`). We\n  never discussed these separately, but used them as part of other patterns.\n* **Literal patterns** (string literals, number literals, `True`, `False`, and\n  `None`)\n* The **wildcard pattern** "
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "question_id": "t05",
+    "question": "Are comments allowed inside an expression?",
+    "expected_answer": "No. Comments using '#' are not allowed inside an f-string expression.",
+    "auto_hit_at_3": false,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0008:u14:fixed500o50:c00",
+        "score": 0.498863,
+        "text": "An inline comment is a comment on the same line as a statement.\nInline comments should be separated by at least two spaces from the\nstatement.  They should start with a # and a single space.\n\nInline comments are unnecessary and in fact distracting if they state\nthe obvious.  Don't do this:\n\n   x = x + 1                 # Increment x\n\nBut sometimes, this is useful:\n\n   x = x + 1                 # Compensate for border\n\n## Documentation Strings\n\nConventions for writing good documentation strings\n("
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0008:u13:fixed500o50:c01",
+        "score": 0.486952,
+        "text": "lized, unless it is an identifier that begins with a lower case\nletter (never alter the case of identifiers!).\n\nBlock comments generally consist of one or more paragraphs built out of\ncomplete sentences, with each sentence ending in a period.\n\nYou should use one or two spaces after a sentence-ending period in\nmulti-sentence comments, except after the final sentence.\n\nEnsure that your comments are clear and easily understandable to other\nspeakers of the language you are writing in.\n\nPython coders"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0008:u13:fixed500o50:c03",
+        "score": 0.485503,
+        "text": "dented text inside the comment).\n\nParagraphs inside a block comment are separated by a line containing a\nsingle `#`.\n\n## Inline Comments\n\nUse inline comments sparingly."
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "question_id": "t06",
+    "question": "What does a wildcard match, and does it bind anything?",
+    "expected_answer": "The wildcard `_` always matches (any object) but does not bind any variables.",
+    "auto_hit_at_3": true,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0636:u05:fixed500o50:c01",
+        "score": 0.528276,
+        "text": ". Patterns can be nested within each other, and we\nhave been doing that implicitly in the examples above.\n\nThere are some \"simple\" patterns (\"simple\" here meaning that they do not contain other\npatterns) that we've seen:\n\n* **Capture patterns** (stand-alone names like `direction`, `action`, `objects`). We\n  never discussed these separately, but used them as part of other patterns.\n* **Literal patterns** (string literals, number literals, `True`, `False`, and\n  `None`)\n* The **wildcard pattern** "
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0636:u05:fixed500o50:c00",
+        "score": 0.522706,
+        "text": "This special pattern which is written `_` (and called wildcard) always\nmatches but it doesn't bind any variables.\n\nNote that this will match any object, not just sequences. As such, it only makes\nsense to have it by itself as the last pattern (to prevent errors, Python will stop\nyou from using it before).\n\n## Composing patterns\n\nThis is a good moment to step back from the examples and understand how the patterns\nthat you have been using are built. Patterns can be nested within each other, and we"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0636:u14:fixed500o50:c02",
+        "score": 0.521613,
+        "text": "xactly the\n  same meaning and actually match arbitrary sequences.  An important\n  exception is that they don't match iterators or strings.\n  (Technically, the subject  must be an instance of\n  `collections.abc.Sequence`.)\n\n- Sequence patterns support wildcards: `[x, y, *rest]` and `(x, y,\n  *rest)` work similar to wildcards in unpacking assignments.  The\n  name after `*` may also be `_`, so `(x, y, *_)` matches a sequence\n  of at least two items without binding the remaining items.\n\n- Mapping pa"
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "question_id": "t01",
+    "question": "Is it acceptable to name functions in mixedCase?",
+    "expected_answer": "Only in contexts where mixedCase is already the prevailing style (e.g. threading.py), for backwards compatibility; otherwise use lowercase_with_underscores.",
+    "auto_hit_at_3": true,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0008:u18:para800:c00",
+        "score": 0.556859,
+        "text": "### Function and Variable Names\n\nFunction names should be lowercase, with words separated by\nunderscores as necessary to improve readability.\n\nVariable names follow the same convention as function names.\n\nmixedCase is allowed only in contexts where that's already the\nprevailing style (e.g. threading.py), to retain backwards\ncompatibility."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0008:u17:para800:c01",
+        "score": 0.496345,
+        "text": "### Class Names\n\nClass names should normally use the CapWords convention.\n\nThe naming convention for functions may be used instead in cases where\nthe interface is documented and used primarily as a callable.\n\nNote that there is a separate convention for builtin names: most builtin\nnames are single words (or two words run together), with the CapWords\nconvention used only for exception names and builtin constants."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0008:u15:para800:c01",
+        "score": 0.483562,
+        "text": "## Descriptive: Naming Styles\n\nThere are a lot of different naming styles.  It helps to be able to\nrecognize what naming style is being used, independently from what\nthey are used for.\n\nThe following naming styles are commonly distinguished:\n\n- `b` (single lowercase letter)\n- `B` (single uppercase letter)\n- `lowercase`\n- `lower_case_with_underscores`\n- `UPPERCASE`\n- `UPPER_CASE_WITH_UNDERSCORES`\n- `CapitalizedWords` (or CapWords, or CamelCase -- so named because\n  of the bumpy look of its letters).  This is also sometimes known\n  as StudlyCaps."
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "question_id": "t02",
+    "question": "At what point does an accepted PEP get the status Final?",
+    "expected_answer": "When its reference implementation is complete and incorporated into the main source code repository.",
+    "auto_hit_at_3": false,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0001:u13:para800:c01",
+        "score": 0.718776,
+        "text": "The possible paths of the status of PEPs are as follows:\n\nWhile not shown in the diagram, \"Accepted\" PEPs may technically move to\n\"Rejected\" or \"Withdrawn\" even after acceptance. This will only occur if\nthe implementation process reveals fundamental flaws in the design that were\nnot noticed prior to acceptance of the PEP. Unlike Provisional PEPs, these\ntransitions are only permitted if the accepted proposal has *not* been included\nin a Python release - released changes must instead go through the regular\ndeprecation process (which may require a new PEP providing the rationale for\nthe deprecation).\n\nSome Informational and Process PEPs may also have a status of \"Active\"\nif they are never meant to be completed.  E.g. PEP 1 (this PEP)."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0001:u14:para800:c00",
+        "score": 0.639515,
+        "text": "## PEP Maintenance\n\nIn general, PEPs are no longer substantially modified after they have reached\nthe Accepted, Final, Rejected or Superseded state. Once resolution is reached,\na PEP is considered a historical document rather than a living specification.\nFormal documentation of the expected behavior should be maintained elsewhere,\nsuch as the Language Reference for core features, the Library Reference\nfor standard library modules or the PyPA Specifications for packaging.\n\nIf changes based on implementation experience and user feedback are made to\nStandards track PEPs while in the Provisional or (with SC approval) Accepted\nstate, they should be noted in the PEP, such that the PEP accurately describes\nthe implementation at the point where it is marked Final."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0001:u13:para800:c00",
+        "score": 0.563536,
+        "text": "A PEP can also be \"Rejected\".  Perhaps after all is said and done it\nwas not a good idea.  It is still important to have a record of this\nfact. The \"Withdrawn\" status is similar - it means that the PEP author\nthemselves has decided that the PEP is actually a bad idea, or has\naccepted that a competing proposal is a better alternative.\n\nWhen a PEP is Accepted, Rejected or Withdrawn, the PEP should be updated\naccordingly. In addition to updating the Status field, at the very least\nthe Resolution header should be added with a direct link\nto the relevant post making a decision on the PEP.\n\nPEPs can also be superseded by a different PEP, rendering the original\nobsolete.  This is intended for Informational PEPs, where version 2 of\nan API can replace version 1."
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "question_id": "t03",
+    "question": "Does := bind more or less tightly than a comma and than other operators?",
+    "expected_answer": "More tightly than a comma, but less tightly than all other operators (including or, and, not and conditional expressions).",
+    "auto_hit_at_3": true,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0572:u20:para800:c00",
+        "score": 0.66554,
+        "text": "While this behaviour would be convenient in many situations, it is also harder\nto explain than \"the := operator behaves just like the assignment statement\",\nand as such, the precedence for `:=` has been made as close as possible to\nthat of `=` (with the exception that it binds tighter than comma)."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0572:u20:para800:c01",
+        "score": 0.569438,
+        "text": "## Allowing commas to the right\n\nSome critics have claimed that the assignment expressions should allow\nunparenthesized tuples on the right, so that these two would be equivalent:\n\n    (point := (x, y))\n    (point := x, y)\n\n(With the current version of the proposal, the latter would be\nequivalent to `((point := x), y)`.)\n\nHowever, adopting this stance would logically lead to the conclusion\nthat when used in a function call, assignment expressions also bind\nless tight than comma, so we'd have the following confusing equivalence:\n\n    foo(x := 1, y)\n    foo(x := (1, y))\n\nThe less confusing option is to make `:=` bind more tightly than comma."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0572:u09:para800:c01",
+        "score": 0.540999,
+        "text": "## Relative precedence of `:=`\n\nThe `:=` operator groups more tightly than a comma in all syntactic\npositions where it is legal, but less tightly than all other operators,\nincluding `or`, `and`, `not`, and conditional expressions\n(`A if C else B`).  As follows from section\n\"Exceptional cases\" above, it is never allowed at the same level as\n`=`.  In case a different grouping is desired, parentheses should be\nused.\n\nThe `:=` operator may be used directly in a positional function call\nargument; however it is invalid directly in a keyword argument.\n\nSome examples to clarify what's technically valid or invalid:\n\n    # INVALID\n    x := 0\n\n    # Valid alternative\n    (x := 0)\n\n    # INVALID\n    x = y := 0\n\n    # Valid alternative\n    x = (y := 0)\n\n    # Valid\n    len(lines := f.readlines())"
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "question_id": "t04",
+    "question": "How are literal values in match patterns compared, and which literals are exceptions?",
+    "expected_answer": "With ==, except True, False and None, which are compared with `is` (identity).",
+    "auto_hit_at_3": true,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0636:u12:para800:c01",
+        "score": 0.535697,
+        "text": "# Appendix A -- Quick Intro\n\nA match statement takes an expression and compares its value to successive\npatterns given as one or more case blocks.  This is superficially\nsimilar to a switch statement in C, Java or JavaScript (and many\nother languages), but much more powerful.\n\nThe simplest form compares a subject value against one or more literals:\n\n    def http_error(status):\n        match status:\n            case 400:\n                return \"Bad request\"\n            case 404:\n                return \"Not found\"\n            case 418:\n                return \"I'm a teapot\"\n            case _:\n                return \"Something's wrong with the Internet\"\n\nNote the last block: the \"variable name\" `_` acts as a *wildcard* and\nnever fails to match."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0636:u04:para800:c00",
+        "score": 0.530592,
+        "text": "Literal values are compared with the `==` operator except for the constants `True`,\n`False` and `None` which are compared with the `is` operator."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0636:u05:para800:c01",
+        "score": 0.510524,
+        "text": "## Composing patterns\n\nThis is a good moment to step back from the examples and understand how the patterns\nthat you have been using are built. Patterns can be nested within each other, and we\nhave been doing that implicitly in the examples above.\n\nThere are some \"simple\" patterns (\"simple\" here meaning that they do not contain other\npatterns) that we've seen:\n\n* **Capture patterns** (stand-alone names like `direction`, `action`, `objects`). We\n  never discussed these separately, but used them as part of other patterns.\n* **Literal patterns** (string literals, number literals, `True`, `False`, and\n  `None`)\n* The **wildcard pattern** `_`"
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "question_id": "t05",
+    "question": "Are comments allowed inside an expression?",
+    "expected_answer": "No. Comments using '#' are not allowed inside an f-string expression.",
+    "auto_hit_at_3": true,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0498:u05:para800:c01",
+        "score": 0.495353,
+        "text": "The parts of the f-string outside of braces are literal\nstrings.  These literal portions are then decoded.  For non-raw\nf-strings, this includes converting backslash escapes such as\n`'\\n'`, `'\\\"'`, `\"\\'\"`, `'\\xhh'`, `'\\uxxxx'`,\n`'\\Uxxxxxxxx'`, and named unicode characters `'\\N{name}'` into\ntheir associated Unicode characters.\n\nBackslashes may not appear anywhere within expressions.  Comments,\nusing the `'#'` character, are not allowed inside an expression."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0008:u14:para800:c00",
+        "score": 0.493886,
+        "text": "An inline comment is a comment on the same line as a statement.\nInline comments should be separated by at least two spaces from the\nstatement.  They should start with a # and a single space.\n\nInline comments are unnecessary and in fact distracting if they state\nthe obvious.  Don't do this:\n\n   x = x + 1                 # Increment x\n\nBut sometimes, this is useful:\n\n   x = x + 1                 # Compensate for border"
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0008:u13:para800:c01",
+        "score": 0.484992,
+        "text": "# Comments\n\nComments that contradict the code are worse than no comments.  Always\nmake a priority of keeping the comments up-to-date when the code\nchanges!\n\nComments should be complete sentences.  The first word should be\ncapitalized, unless it is an identifier that begins with a lower case\nletter (never alter the case of identifiers!).\n\nBlock comments generally consist of one or more paragraphs built out of\ncomplete sentences, with each sentence ending in a period.\n\nYou should use one or two spaces after a sentence-ending period in\nmulti-sentence comments, except after the final sentence.\n\nEnsure that your comments are clear and easily understandable to other\nspeakers of the language you are writing in."
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "question_id": "t06",
+    "question": "What does a wildcard match, and does it bind anything?",
+    "expected_answer": "The wildcard `_` always matches (any object) but does not bind any variables.",
+    "auto_hit_at_3": true,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0636:u05:para800:c00",
+        "score": 0.581926,
+        "text": "This special pattern which is written `_` (and called wildcard) always\nmatches but it doesn't bind any variables.\n\nNote that this will match any object, not just sequences. As such, it only makes\nsense to have it by itself as the last pattern (to prevent errors, Python will stop\nyou from using it before)."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0636:u04:para800:c02",
+        "score": 0.528558,
+        "text": "This will match any sequences having \"drop\" as its first elements. All remaining\nelements will be captured in a `list` object which will be bound to the `objects`\nvariable.\n\nThis syntax has similar restrictions as sequence unpacking: you can not have more than one\nstarred name in a pattern."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0636:u06:para800:c01",
+        "score": 0.509152,
+        "text": "This is called an **or pattern** and will produce the expected result. Patterns are\ntried from left to right; this may be relevant to know what is bound if more than\none alternative matches. An important restriction when writing or patterns is that all\nalternatives should bind the same variables. So a pattern `[1, x] | [2, y]` is not\nallowed because it would make unclear which variable would be bound after a successful\nmatch. `[1, x] | [2, x]` is perfectly fine and will always bind `x` if successful."
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "question_id": "t01",
+    "question": "Is it acceptable to name functions in mixedCase?",
+    "expected_answer": "Only in contexts where mixedCase is already the prevailing style (e.g. threading.py), for backwards compatibility; otherwise use lowercase_with_underscores.",
+    "auto_hit_at_3": true,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0008:u18:para800:c00",
+        "score": 0.556859,
+        "text": "### Function and Variable Names\n\nFunction names should be lowercase, with words separated by\nunderscores as necessary to improve readability.\n\nVariable names follow the same convention as function names.\n\nmixedCase is allowed only in contexts where that's already the\nprevailing style (e.g. threading.py), to retain backwards\ncompatibility."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0008:u17:para800:c01",
+        "score": 0.496345,
+        "text": "### Class Names\n\nClass names should normally use the CapWords convention.\n\nThe naming convention for functions may be used instead in cases where\nthe interface is documented and used primarily as a callable.\n\nNote that there is a separate convention for builtin names: most builtin\nnames are single words (or two words run together), with the CapWords\nconvention used only for exception names and builtin constants."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0008:u15:para800:c01",
+        "score": 0.483562,
+        "text": "## Descriptive: Naming Styles\n\nThere are a lot of different naming styles.  It helps to be able to\nrecognize what naming style is being used, independently from what\nthey are used for.\n\nThe following naming styles are commonly distinguished:\n\n- `b` (single lowercase letter)\n- `B` (single uppercase letter)\n- `lowercase`\n- `lower_case_with_underscores`\n- `UPPERCASE`\n- `UPPER_CASE_WITH_UNDERSCORES`\n- `CapitalizedWords` (or CapWords, or CamelCase -- so named because\n  of the bumpy look of its letters).  This is also sometimes known\n  as StudlyCaps."
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "question_id": "t02",
+    "question": "At what point does an accepted PEP get the status Final?",
+    "expected_answer": "When its reference implementation is complete and incorporated into the main source code repository.",
+    "auto_hit_at_3": false,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0001:u13:para800:c01",
+        "score": 0.718776,
+        "text": "The possible paths of the status of PEPs are as follows:\n\nWhile not shown in the diagram, \"Accepted\" PEPs may technically move to\n\"Rejected\" or \"Withdrawn\" even after acceptance. This will only occur if\nthe implementation process reveals fundamental flaws in the design that were\nnot noticed prior to acceptance of the PEP. Unlike Provisional PEPs, these\ntransitions are only permitted if the accepted proposal has *not* been included\nin a Python release - released changes must instead go through the regular\ndeprecation process (which may require a new PEP providing the rationale for\nthe deprecation).\n\nSome Informational and Process PEPs may also have a status of \"Active\"\nif they are never meant to be completed.  E.g. PEP 1 (this PEP)."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0001:u14:para800:c00",
+        "score": 0.639515,
+        "text": "## PEP Maintenance\n\nIn general, PEPs are no longer substantially modified after they have reached\nthe Accepted, Final, Rejected or Superseded state. Once resolution is reached,\na PEP is considered a historical document rather than a living specification.\nFormal documentation of the expected behavior should be maintained elsewhere,\nsuch as the Language Reference for core features, the Library Reference\nfor standard library modules or the PyPA Specifications for packaging.\n\nIf changes based on implementation experience and user feedback are made to\nStandards track PEPs while in the Provisional or (with SC approval) Accepted\nstate, they should be noted in the PEP, such that the PEP accurately describes\nthe implementation at the point where it is marked Final."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0001:u13:para800:c00",
+        "score": 0.563536,
+        "text": "A PEP can also be \"Rejected\".  Perhaps after all is said and done it\nwas not a good idea.  It is still important to have a record of this\nfact. The \"Withdrawn\" status is similar - it means that the PEP author\nthemselves has decided that the PEP is actually a bad idea, or has\naccepted that a competing proposal is a better alternative.\n\nWhen a PEP is Accepted, Rejected or Withdrawn, the PEP should be updated\naccordingly. In addition to updating the Status field, at the very least\nthe Resolution header should be added with a direct link\nto the relevant post making a decision on the PEP.\n\nPEPs can also be superseded by a different PEP, rendering the original\nobsolete.  This is intended for Informational PEPs, where version 2 of\nan API can replace version 1."
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "question_id": "t03",
+    "question": "Does := bind more or less tightly than a comma and than other operators?",
+    "expected_answer": "More tightly than a comma, but less tightly than all other operators (including or, and, not and conditional expressions).",
+    "auto_hit_at_3": true,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0572:u20:para800:c00",
+        "score": 0.66554,
+        "text": "While this behaviour would be convenient in many situations, it is also harder\nto explain than \"the := operator behaves just like the assignment statement\",\nand as such, the precedence for `:=` has been made as close as possible to\nthat of `=` (with the exception that it binds tighter than comma)."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0572:u20:para800:c01",
+        "score": 0.569438,
+        "text": "## Allowing commas to the right\n\nSome critics have claimed that the assignment expressions should allow\nunparenthesized tuples on the right, so that these two would be equivalent:\n\n    (point := (x, y))\n    (point := x, y)\n\n(With the current version of the proposal, the latter would be\nequivalent to `((point := x), y)`.)\n\nHowever, adopting this stance would logically lead to the conclusion\nthat when used in a function call, assignment expressions also bind\nless tight than comma, so we'd have the following confusing equivalence:\n\n    foo(x := 1, y)\n    foo(x := (1, y))\n\nThe less confusing option is to make `:=` bind more tightly than comma."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0572:u09:para800:c01",
+        "score": 0.540999,
+        "text": "## Relative precedence of `:=`\n\nThe `:=` operator groups more tightly than a comma in all syntactic\npositions where it is legal, but less tightly than all other operators,\nincluding `or`, `and`, `not`, and conditional expressions\n(`A if C else B`).  As follows from section\n\"Exceptional cases\" above, it is never allowed at the same level as\n`=`.  In case a different grouping is desired, parentheses should be\nused.\n\nThe `:=` operator may be used directly in a positional function call\nargument; however it is invalid directly in a keyword argument.\n\nSome examples to clarify what's technically valid or invalid:\n\n    # INVALID\n    x := 0\n\n    # Valid alternative\n    (x := 0)\n\n    # INVALID\n    x = y := 0\n\n    # Valid alternative\n    x = (y := 0)\n\n    # Valid\n    len(lines := f.readlines())"
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "question_id": "t04",
+    "question": "How are literal values in match patterns compared, and which literals are exceptions?",
+    "expected_answer": "With ==, except True, False and None, which are compared with `is` (identity).",
+    "auto_hit_at_3": true,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0636:u12:para800:c01",
+        "score": 0.535697,
+        "text": "# Appendix A -- Quick Intro\n\nA match statement takes an expression and compares its value to successive\npatterns given as one or more case blocks.  This is superficially\nsimilar to a switch statement in C, Java or JavaScript (and many\nother languages), but much more powerful.\n\nThe simplest form compares a subject value against one or more literals:\n\n    def http_error(status):\n        match status:\n            case 400:\n                return \"Bad request\"\n            case 404:\n                return \"Not found\"\n            case 418:\n                return \"I'm a teapot\"\n            case _:\n                return \"Something's wrong with the Internet\"\n\nNote the last block: the \"variable name\" `_` acts as a *wildcard* and\nnever fails to match."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0636:u04:para800:c00",
+        "score": 0.530592,
+        "text": "Literal values are compared with the `==` operator except for the constants `True`,\n`False` and `None` which are compared with the `is` operator."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0636:u05:para800:c01",
+        "score": 0.510524,
+        "text": "## Composing patterns\n\nThis is a good moment to step back from the examples and understand how the patterns\nthat you have been using are built. Patterns can be nested within each other, and we\nhave been doing that implicitly in the examples above.\n\nThere are some \"simple\" patterns (\"simple\" here meaning that they do not contain other\npatterns) that we've seen:\n\n* **Capture patterns** (stand-alone names like `direction`, `action`, `objects`). We\n  never discussed these separately, but used them as part of other patterns.\n* **Literal patterns** (string literals, number literals, `True`, `False`, and\n  `None`)\n* The **wildcard pattern** `_`"
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "question_id": "t05",
+    "question": "Are comments allowed inside an expression?",
+    "expected_answer": "No. Comments using '#' are not allowed inside an f-string expression.",
+    "auto_hit_at_3": true,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0498:u05:para800:c01",
+        "score": 0.495353,
+        "text": "The parts of the f-string outside of braces are literal\nstrings.  These literal portions are then decoded.  For non-raw\nf-strings, this includes converting backslash escapes such as\n`'\\n'`, `'\\\"'`, `\"\\'\"`, `'\\xhh'`, `'\\uxxxx'`,\n`'\\Uxxxxxxxx'`, and named unicode characters `'\\N{name}'` into\ntheir associated Unicode characters.\n\nBackslashes may not appear anywhere within expressions.  Comments,\nusing the `'#'` character, are not allowed inside an expression."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0572:u04:para800:c02",
+        "score": 0.424662,
+        "text": "  Again, this rule is included to avoid two visually similar ways of\n  saying the same thing.\n\n- Unparenthesized assignment expressions are prohibited for the value\n  of a keyword argument in a call.  Example:\n\n    foo(x = y := f(x))  # INVALID\n    foo(x=(y := f(x)))  # Valid, though probably confusing\n\n  This rule is included to disallow excessively confusing code, and\n  because parsing keyword arguments is complex enough already."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0498:u07:para800:c02",
+        "score": 0.409896,
+        "text": "## Expression evaluation\n\nThe expressions that are extracted from the string are evaluated in\nthe context where the f-string appeared. This means the expression has\nfull access to local and global variables. Any valid Python expression\ncan be used, including function and method calls.\n\nBecause the f-strings are evaluated where the string appears in the\nsource code, there is no additional expressiveness available with\nf-strings. There are also no additional security concerns: you could\nhave also just written the same expression, not inside of an\nf-string:"
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "question_id": "t06",
+    "question": "What does a wildcard match, and does it bind anything?",
+    "expected_answer": "The wildcard `_` always matches (any object) but does not bind any variables.",
+    "auto_hit_at_3": true,
+    "top3": [
+      {
+        "rank": 1,
+        "chunk_id": "pep-0636:u05:para800:c00",
+        "score": 0.581926,
+        "text": "This special pattern which is written `_` (and called wildcard) always\nmatches but it doesn't bind any variables.\n\nNote that this will match any object, not just sequences. As such, it only makes\nsense to have it by itself as the last pattern (to prevent errors, Python will stop\nyou from using it before)."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "pep-0636:u04:para800:c02",
+        "score": 0.528558,
+        "text": "This will match any sequences having \"drop\" as its first elements. All remaining\nelements will be captured in a `list` object which will be bound to the `objects`\nvariable.\n\nThis syntax has similar restrictions as sequence unpacking: you can not have more than one\nstarred name in a pattern."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "pep-0636:u06:para800:c01",
+        "score": 0.509152,
+        "text": "This is called an **or pattern** and will produce the expected result. Patterns are\ntried from left to right; this may be relevant to know what is bound if more than\none alternative matches. An important restriction when writing or patterns is that all\nalternatives should bind the same variables. So a pattern `[1, x] | [2, y]` is not\nallowed because it would make unclear which variable would be bound after a successful\nmatch. `[1, x] | [2, x]` is perfectly fine and will always bind `x` if successful."
+      }
+    ],
+    "grounding_0_1_2": "",
+    "reason": ""
+  }
+]
