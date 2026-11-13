@@ -80,8 +80,11 @@ Tài nguyên: A lưu 203.100 ký tự / 48.990 token (khoảng 9% là phần ove
 
 ### Công cụ AI đã dùng (theo RULES.md)
 
-Trợ lý AI (Claude) đã hỗ trợ viết code pipeline, soạn bộ câu hỏi từ corpus, soạn nhãn thủ công và bản nháp báo cáo này. Cách kiểm tra:
-- Evidence được kiểm chứng tự động với nguồn.
-- Metadata được đối chiếu bằng script.
-- Mọi số liệu trong báo cáo lấy từ file trong `results/` do pipeline sinh ra; không có số nào tự điền.
-- Học viên chịu trách nhiệm hiểu, chạy lại và rà soát toàn bộ nhãn trước khi nộp.
+Sử dụng Claude (Anthropic) làm trợ lý lập trình và phân tích: hỗ trợ viết code pipeline, gợi ý câu hỏi benchmark từ corpus và đề xuất nhãn coherence/grounding kèm lý do.
+
+Kiểm soát và kiểm chứng:
+- Evidence của 25 câu được kiểm chứng tự động với nguồn (`scripts/verify_benchmark.py`); metadata top-3 được đối chiếu bằng script.
+- Mọi số liệu lấy từ file trong `results/` do pipeline sinh ra, không điền tay.
+- Học viên đã chạy lại toàn bộ pipeline trên máy cá nhân (Docker pgvector) và đối chiếu chỉ số.
+- Học viên đã rà soát từng nhãn coherence/grounding.
+
